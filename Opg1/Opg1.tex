@@ -1,0 +1,70 @@
+\section{Bridge}
+
+\subsection*{(a) Sætning 1.4}
+
+Vi skal vise at $2^n = \sum_{k=0}^{n} {n \choose k}$.\\
+\\
+Vi benytter sætning 1.4:
+
+\begin{mdframed}[backgroundcolor=gray!5]
+\begin{equation}
+    (X+Y)^n = \sum_{k=0}^{n} {n \choose k} \cdot X^{n-k} \cdot Y^{k}
+\end{equation}
+\end{mdframed}
+\vspace{0.5 cm}
+
+Vi indsætter $X=Y=1$:
+\begin{equation}
+    (1+1)^n = \sum_{k=0}^{n} {n \choose k} \cdot 1^{n-k} \cdot 1^{k}
+\end{equation}
+
+For alle $c \in \mathbb{Z}$ er $1^c$ = $1$, så $1^{n-k}=1$ og $1^{k}=1$. Dvs.
+$1^{n-k} \cdot 1^{k} = 1$. Vi har da
+
+\begin{equation}
+    (1+1)^n = \sum_{k=0}^{n} {n \choose k} \cdot 1
+\end{equation}
+
+\begin{equation}
+ 2^n = \sum_{k=0}^{n} {n \choose k}
+\end{equation}
+
+som ønsket.
+
+\subsection*{(b) Bridgehænder}
+Vi vil finde antallet af mulige bridgehænder. Der er $n=52$ kort. Vi skal vælge $k=13$ kort. Rækkefølgen er ligegyldig. Antallet af mulige bridgehænder er da givet ved binomialkoefficienten, der udregnes via sætning 1.3:
+
+\begin{equation}
+    N_{\text{total}} = {n \choose k} = {52 \choose 13} = \frac{52!}{(52-13)! \cdot 13!} = \frac{52!}{39! \cdot 13!} = 635013559600 \approx 6.35 \cdot 10^{11}
+\end{equation}
+
+\subsection*{(c) 4-3-3-3 fordeling}
+
+Vi vil nu finde antallet af bridgehænder med en 4-3-3-3 fordeling.\\
+\\
+Vi bruger igen binomialkoefficienten givet ved sætning 1.3, fordi rækkefølgen er ligegyldig. Hvis spilleren trækker hjerter 1 og så hjerter 2, er det det samme som at trække hjerter 2 og så hjerter 1.\\
+\\
+Antag at vi starter med et at trække et kort af kuløren \textcolor{red}{\textbf{hjerter}}. Der er 13 kort af denne kulør, og vi skal trække 4 af dem.  Derefter skal vi trække 3 af de 13 \textbf{spar}. Så 3 af de 13 \textcolor{orange}{\textbf{ruder}}. Endeligt 3 af de 13 \textcolor{blue}{\textbf{klør}}.
+\\
+\\
+Dvs. hvis vi skal 4 hjerter kort, og 3 af de resterende kulører, er der umiddelbart
+
+\begin{equation}
+     N_{\text{hjerter start}} = \textcolor{red}{{13 \choose 4}}  \cdot {13 \choose 3} \cdot  \textcolor{orange}{{13 \choose 3}} \cdot  \textcolor{blue}{{13 \choose 3}} 
+\end{equation}
+
+forskellige hænder af \textcolor{red}{4}-\textcolor{black}{3}-\textcolor{blue}{3}-\textcolor{orange}{3} fordeling med 4 hjerter kort. Men! Der er 4 forskellige kulører, der kan være den "store" del af hånden (de 4 kort). Så antallet af mulige 4-3-3-3 bridgehænder er givet ved
+
+\begin{equation}
+     N_{\text{4-3-3-3}} = {13 \choose 4}  \cdot {13 \choose 3}^3 \cdot 4 = \frac{13!}{(13-4)! \cdot 4!} \cdot \left( \frac{13!}{(13-3)! \cdot 3!} \right)^3 \cdot 4
+\end{equation}
+
+\begin{equation}
+     N_{\text{4-3-3-3}} = \frac{13!}{9! \cdot 4!} \cdot \left( \frac{13!}{10! \cdot 3!} \right)^3 \cdot 4 = \frac{13!^4 \cdot 4}{9! \cdot 4! \cdot 10!^3 \cdot 3!^3} = 66905856160 \approx 6.69 \cdot 10^{10}
+\end{equation}
+
+Andelen af bridgehænderne, der er 4-3-3-3 hænder, er da
+
+\begin{equation}
+    \frac{N_{\text{4-3-3-3}}}{N_{\text{total}}} \approx \frac{6.69 \cdot 10^{10}}{6.35 \cdot 10^{10}} \approx 0.105 = 10.5 \, \%
+\end{equation}
